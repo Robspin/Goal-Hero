@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="/style.css">
+   <title>Form</title>
+</head>
+<body>
+
+   <nav>
+      <h1>Goal Hero</h1>
+   </nav>
+
+   <div class="form-container">
+      <form class="form" id="form">
+         <div class="hold" id="hold">
+         <h2>Set Up Your Goal</h2>
+         <h3>Main Goal</h3>
+         <div class="input-container">
+            <input type="text" id="main-goal" class="main-goal input" placeholder="ex - Learn Japanese ">
+         </div>
+         <h3>Steps</h3>
+         <div class="input-container">
+            <input type="text" id="steps" class="steps input" placeholder="ex - Learn Hiragana alphabet">
+            <button id="remove-btn"  class="remove-btn btn">x</button>
+         </div>
+         <div class="input-container">
+            <input type="text" id="steps" class="steps input" placeholder="ex - Learn verb conjugation"><button id="remove-btn"  class="remove-btn btn">x</button>
+         </div>
+         <div class="input-container">
+            <input type="text" id="steps" class="steps input" placeholder="ex - Learn Kanji">
+            <button id="remove-btn"  class="remove-btn btn">x</button>
+         </div>
+         </div>
+         <button id="add-step" class="add-step btn">Add more</button>
+         <button type="submit" class="btn create" id="create">Create</button>
+      </form>
+   </div>
+
+   <script src="/script.js"></script>
+</body>
+</html>

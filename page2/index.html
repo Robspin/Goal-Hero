@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Goal Hero</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+   <link rel="stylesheet" href="/page2/style.css">
+</head>
+<body>
+   <nav id="nav">
+      <img src="/page2/pngs/ham.png" alt="" class="ham" id="ham">
+      <h1>Learn Front-End Development</h1>
+      <div></div>
+   </nav>
+   <div class="dropdown" id="dropdown">
+      <div class="dropdown-box"><a href="/index.html">New Goal</a></div>
+      <div class="dropdown-box"><a href="#">Goals</a></div>
+      <div class="dropdown-box"><a href="#" id="theme">Color Theme</a></div>
+      <div class="dropdown-box hide" id="color"><a href="#">Light</a></div>
+   </div>
+   <div class="subgoal-container">
+      <div class="subgoal-box done"><i class="fas fa-check" style="font-size:200%"></i><h2>Learn HTTP</h2></div>
+      <div class="subgoal-box"><h2>Learn HTML</h2></div>
+      <div class="subgoal-box"><h2>Learn CSS</h2></div>
+      <div class="subgoal-box"><h2>Learn JavaScript</h2></div>
+      <div class="subgoal-box"><h2>Learn React</h2></div>
+   </div>
+   <div class="progress-container">
+      <div class="grid">
+         <div class="pos1"><img src="/page2/pngs/Group3.png" alt="" class="finished"></div>
+         <img src="/page2/pngs/HERO-R.png" alt="" class="hero" id="hero">
+         <div></div>
+         <div></div>
+         <img src="/page2/pngs/BOSS-R.png" alt="" class="boss" id="boss">
+      </div>
+      <svg height="250px" width="1000px" class="map">
+         <line x1="100" y1="40" x2="900" y2="40"/>
+         <circle cx="100" cy="40" r="15"/>
+         <circle cx="300" cy="40" r="15"/>
+         <circle cx="500" cy="40" r="15"/>
+         <circle cx="700" cy="40" r="15"/>
+         <circle cx="900" cy="40" r="15"/>
+      </svg>
+   </div>
+   <script src="/page2/app.js"></script>
+</body>
+</html>
