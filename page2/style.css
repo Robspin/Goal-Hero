@@ -101,7 +101,10 @@ h1 {
    height: 80px;
    text-align: center;
    cursor: pointer;
-   z-index: -2;
+   z-index: 1;
+   display: flex;
+   align-items: center;
+   justify-content: center;
 }
 
 .done {
@@ -114,8 +117,16 @@ h2 {
 }
 
 i {
-   margin-top: 10px;
+   margin-right: 5px;
 }
+
+i.show {
+   display: flex;
+}
+
+/* i.show {
+   display: flex;
+} */
 
 .progress-container {
    display: flex;

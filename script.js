@@ -35,8 +35,7 @@ here.addEventListener('click', e => {
 });
 
 
-let secondaryGoals = localStorage.getItem('secondaryGoals') !== null ?
-localStorageTransactions : [];
+let secondaryGoals = [];
 
 
 // Add goals to localstorage
@@ -49,7 +48,12 @@ createBtn.addEventListener('click', (e) => {
    const secondaryGoalsEl = document.querySelectorAll('.steps');
 
    let x = Array.from(secondaryGoalsEl);
-   x.forEach(input => secondaryGoals.push(input.value));
+   x.forEach(input => secondaryGoals.push({ 
+      name: input.value, 
+      completed: false   
+   }));
+
+
 
    console.log(mainGoal, secondaryGoals);
 
