@@ -95,9 +95,9 @@ h1 {
 .subgoal-box {
    background: var(--main-color);
    margin: 30px;
-   padding: 5px 30px;
+   padding: 15px 10px;
    border: solid #707070 0.1px;
-   width: 300px;
+   width: 350px;
    height: 80px;
    text-align: center;
    cursor: pointer;
@@ -114,6 +114,8 @@ h1 {
 h2 {
    font-weight: 500;
    letter-spacing: 2px;
+   z-index: -1;
+   pointer-events: none;
 }
 
 i {

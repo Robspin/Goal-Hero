@@ -10,13 +10,14 @@ function addStep(e){
 
    item.innerHTML = `
             <input type="text" id="steps" class="steps input" placeholder="ex - next step">
-            <button id="remove-btn"  class="remove-btn btn">x</button>
+            <button id="remove-btn"  class="remove-btn btn" tabindex="-1">x</button>
    `;
    item.classList.add('input-container');
    here.appendChild(item);
 
    e.preventDefault();
 }
+
 
 
 // Event listeners
@@ -34,31 +35,42 @@ here.addEventListener('click', e => {
    e.preventDefault();
 });
 
+let ID = 0;
+let goals = [];
 
-let secondaryGoals = [];
+function IDcreator() {
+   ID++;
+   return ID;
 
+}
 
 // Add goals to localstorage
 createBtn.addEventListener('click', (e) => {
    e.preventDefault();
 
-   const mainGoal = mainGoalEl.value;
+   const mainGoal = {   name: mainGoalEl.value,
+                        type: 'maingoal',
+                        completed: false,
+                        id: IDcreator()
+   };
+   
+   goals.push(mainGoal);
 
    // All of steps
    const secondaryGoalsEl = document.querySelectorAll('.steps');
 
    let x = Array.from(secondaryGoalsEl);
-   x.forEach(input => secondaryGoals.push({ 
-      name: input.value, 
-      completed: false   
+   x.forEach(input => goals.push({ 
+      name: input.value,
+      type: 'subgoal', 
+      completed: false,
+      id: IDcreator()  
    }));
 
 
 
-   console.log(mainGoal, secondaryGoals);
+   console.log(mainGoal, goals);
 
-   localStorage.setItem('main', JSON.stringify(mainGoal));
-   localStorage.setItem('steps', JSON.stringify(secondaryGoals));
-
+   localStorage.setItem('myGoal', JSON.stringify(goals));
    window.open("./page2/index.html","_self")
 });
