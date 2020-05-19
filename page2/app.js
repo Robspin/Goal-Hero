@@ -3,18 +3,20 @@ const dropdown = document.getElementById('dropdown');
 const theme = document.getElementById('theme');
 const color = document.getElementById('color');
 const stepsContainer = document.querySelector('.subgoal-container');
+const elem = document.getElementById('myBar');
+const hero = document.getElementById('hero');
 // Get info from localStorage
 const myGoal = JSON.parse(localStorage.getItem('myGoal'));
 
 let steps = [];
 let idCounter = 0;
+let preset = 20;
 
 // Nav bar
 ham.addEventListener('click', () => dropdown.classList.toggle('show'));
 
 // Create text from goaldata
 function updateText() {
-
    let idArr = steps.map(steps => steps.id);
    let stepsArr = steps.map(steps => steps.name);
 
@@ -28,16 +30,6 @@ function updateText() {
 
       idCounter++;
    });
-
-   //  completedArr.forEach(goal => {
-   //     if(goal = true) {
-   //  console.log(completedArr.indexOf(goal));
-   //  let z = completedArr.indexOf(goal);
-
-   //  stepsContainer.children[z].children[0].classList.add('fas');
-   //  stepsContainer.children[z].children[0].classList.add('fa-check');
-   //     }
-   //  })
 }
 
 function setMain() {
@@ -51,18 +43,12 @@ function setMain() {
    }
 }
 
-
 // Click event to finish goal
 stepsContainer.addEventListener('click', e => {
    const clickedEl = e.target;
    if (clickedEl.className === 'subgoal-box') {
-      // clickedEl.children[0].classList.add('fas');
-      // clickedEl.children[0].classList.add('fa-check');
       let x = clickedEl.children[1].innerText;
       let y = clickedEl.children[0].id;
-      // console.log(steps);
-      // steps[y].completed = true;
-
 
       steps.forEach(name => {
          if (name.name === x && name.completed === false) {
@@ -75,7 +61,7 @@ stepsContainer.addEventListener('click', e => {
             localStorage.setItem('steps', JSON.stringify(steps));
             steps = steps;
          }
-      })
+      });
    }
    checkIfCompleted();
 });
@@ -98,12 +84,19 @@ function checkIfCompleted() {
 function updateProg() {
    let progC = 0;
    steps.forEach(name => {
-      if(name.completed === true) {
+      if (name.completed === true) {
          progC++;
       }
    });
-   let percent = progC*100/steps.length;
-   console.log(percent);
+   let percent = (progC * 100) / steps.length;
+   progress(percent);
+}
+
+function progress(percent) {
+   let left = percent;
+
+   hero.style.left = left - 10 + '%';
+   elem.style.width = left + '%';
 }
 
 // Change theme
@@ -124,10 +117,10 @@ let style = getComputedStyle(document.body);
 
 // Eventlisteners
 
-theme.addEventListener('click', (e) => {
+theme.addEventListener('click', e => {
    const dark = style.getPropertyValue('--main-color');
    e.preventDefault();
-   if (dark === ('#0C4951')) {
+   if (dark === '#0C4951') {
       setLight();
    } else {
       setDark();
@@ -139,7 +132,7 @@ function init() {
    updateText();
    checkIfCompleted();
    updateProg();
+   progress();
 }
 
 init();
-
