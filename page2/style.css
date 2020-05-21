@@ -106,6 +106,8 @@ h1 {
    display: flex;
    align-items: center;
    justify-content: center;
+   box-shadow: 4px 6px 14px -4px rgba(0, 0, 0, 0.92);
+   overflow: hidden;
 }
 
 .done {

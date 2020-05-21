@@ -1,7 +1,7 @@
 * {
    box-sizing: border-box;
-   --main-color: #0C4951;
-   --secondary-color: #387780; 
+   --main-color: #0c4951;
+   --secondary-color: #387780;
    --text-color: #fff;
 }
 
@@ -19,14 +19,19 @@ body {
 
 h1 {
    letter-spacing: 2px;
+   font-size: 25px;
+   font-weight: 600;
 }
 
 nav {
    position: absolute;
    width: 100%;
-   height: 80px;
+   height: 50px;
    background-color: var(--main-color);
    text-align: center;
+   display: flex;
+   align-items: center;
+   justify-content: center;
    top: 0;
 }
 
@@ -37,7 +42,9 @@ nav {
    display: flex;
    justify-content: center;
    align-items: center;
-   width: 400px;
+   width: 350px;
+   box-shadow: 4px 6px 14px -4px rgba(0, 0, 0, 0.92);
+   border-radius: 5px;
 }
 
 .form {
@@ -59,6 +66,7 @@ nav {
 h2 {
    margin: 0;
    margin-bottom: 20px;
+   font-weight: 600;
 }
 
 .input-container {
@@ -78,7 +86,8 @@ input {
    font-weight: 600;
 }
 
-.input-container h2, h3 {
+.input-container h2,
+h3 {
    margin: 0;
    padding: 15px 0;
 }
@@ -90,9 +99,8 @@ input {
    transition: opacity 0.3 ease-in;
 }
 
-
-
-input:focus, .btn:focus {
+input:focus,
+.btn:focus {
    outline: none;
 }
 
@@ -110,7 +118,8 @@ input:focus, .btn:focus {
    transform: scale(0.95) translateX(950%);
 }
 
-.create:active, .add-step:active {
+.create:active,
+.add-step:active {
    transform: scale(0.95);
 }
 

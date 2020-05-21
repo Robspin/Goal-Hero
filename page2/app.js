@@ -5,6 +5,8 @@ const color = document.getElementById('color');
 const stepsContainer = document.querySelector('.subgoal-container');
 const elem = document.getElementById('myBar');
 const hero = document.getElementById('hero');
+const newGoalLink = document.getElementById('newGoal');
+
 // Get info from localStorage
 const myGoal = JSON.parse(localStorage.getItem('myGoal'));
 
@@ -116,6 +118,10 @@ let style = getComputedStyle(document.body);
 // console.log(style.getPropertyValue('--main-color'));
 
 // Eventlisteners
+newGoalLink.addEventListener('click', () => {
+   localStorage.clear();
+   window.open('../index.html', '_self');
+});
 
 theme.addEventListener('click', e => {
    const dark = style.getPropertyValue('--main-color');
