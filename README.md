@@ -1,1 +1,1 @@
-Just for me to practice JavaScript.
+Small goal tracking app.

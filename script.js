@@ -70,24 +70,24 @@ createBtn.addEventListener('click', e => {
    let q = 0;
 
    x.forEach(input => {
-      if (input.value === '') {
+      if (input.value === '' || input.value === ' ') {
          z++;
-      } else if (input.value.length > 15) {
+      } else if (input.value.length > 22) {
          q++;
       }
    });
 
-   if (mainGoalEl.value === '') {
+   if (mainGoalEl.value === '' || mainGoalEl.value === ' ') {
       z++;
-   } else if (mainGoalEl.value.length > 15) {
+   } else if (mainGoalEl.value.length > 22) {
       q++;
    }
 
    if (z !== 0) {
       empty();
    } else if (q !== 0) {
-      alert("Goal can't be longer then 15 characters");
-   } else {
+      alert("Goal can't be longer then 22 characters");
+   } else if (q === 0 && z === 0) {
       goalCreate();
    }
 });
@@ -117,3 +117,21 @@ function goalCreate() {
    localStorage.setItem('myGoal', JSON.stringify(goals));
    window.open('./page2/index.html', '_self');
 }
+
+// Disable enter key
+window.addEventListener(
+   'keydown',
+   function (e) {
+      if (
+         e.keyIdentifier == 'U+000A' ||
+         e.keyIdentifier == 'Enter' ||
+         e.keyCode == 13
+      ) {
+         if (e.target.nodeName == 'INPUT' && e.target.type == 'text') {
+            e.preventDefault();
+            return false;
+         }
+      }
+   },
+   true
+);
