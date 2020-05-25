@@ -1,8 +1,11 @@
-* {
-   box-sizing: border-box;
+:root {
    --main-color: #0c4951;
    --secondary-color: #387780;
    --text-color: #fff;
+}
+
+* {
+   box-sizing: border-box;
 }
 
 body {

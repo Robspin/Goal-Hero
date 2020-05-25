@@ -103,15 +103,35 @@ function progress(percent) {
 
 // Change theme
 function setLight() {
-   document.documentElement.style.setProperty('--main-color', '#7BFED6');
-   document.documentElement.style.setProperty('--secondary-color', '#AEFFE7');
+   document.documentElement.style.setProperty('--main-color', '#64CED8');
+   document.documentElement.style.setProperty('--secondary-color', '#C0F5FA');
    document.documentElement.style.setProperty('--text-color', 'black');
+   document.getElementById('ham').src = '/page2/pngs/ham-black.png';
+   localStorage.setItem('theme', 'light');
 }
 
 function setDark() {
    document.documentElement.style.setProperty('--main-color', '#0C4951');
    document.documentElement.style.setProperty('--secondary-color', '#387780');
    document.documentElement.style.setProperty('--text-color', '#fff');
+   document.getElementById('ham').src = '/page2/pngs/ham.png';
+}
+
+function changeTheme() {
+   let theme = localStorage.getItem('theme');
+   if (theme === 'light') {
+      setDark();
+      localStorage.removeItem('theme');
+   } else {
+      setLight();
+   }
+}
+
+function checkTheme() {
+   let theme = localStorage.getItem('theme');
+   if (theme === 'light') {
+      setLight();
+   }
 }
 
 let style = getComputedStyle(document.body);
@@ -119,19 +139,12 @@ let style = getComputedStyle(document.body);
 
 // Eventlisteners
 newGoalLink.addEventListener('click', () => {
-   localStorage.clear();
+   localStorage.removeItem('steps');
+   localStorage.removeItem('myGoal');
    window.open('../index.html', '_self');
 });
 
-theme.addEventListener('click', e => {
-   const dark = style.getPropertyValue('--main-color');
-   e.preventDefault();
-   if (dark === '#0C4951') {
-      setLight();
-   } else {
-      setDark();
-   }
-});
+theme.addEventListener('click', changeTheme);
 
 function init() {
    setMain();
@@ -139,6 +152,7 @@ function init() {
    checkIfCompleted();
    updateProg();
    progress();
+   checkTheme();
 }
 
 init();

@@ -8,10 +8,6 @@
    box-sizing: border-box;
 }
 
-html {
-   overflow: hidden;
-}
-
 body {
    font-family: Montserrat, sans-serif;
    margin: 0;
@@ -66,6 +62,7 @@ h1 {
    background: var(--main-color);
    border: solid var(--text-color) 0.05px;
    padding: 20px;
+   cursor: pointer;
 }
 
 .dropdown-box a {
@@ -76,8 +73,12 @@ h1 {
    font-weight: 600;
 }
 
-.dropdown-box a:hover {
-   opacity: 0.7;
+#theme:hover > #color {
+   opacity: 0.6;
+}
+
+#newGoal:hover > #new {
+   opacity: 0.6;
 }
 
 .hide {
@@ -135,7 +136,7 @@ i.show {
    display: flex;
    align-items: center;
    justify-content: center;
-   height: 50vh;
+   height: 36vh;
    width: 100vw;
    flex-direction: column;
 }
@@ -145,6 +146,7 @@ i.show {
    height: 30px;
    background-color: #4caf50;
    color: white;
+   overflow: hidden;
 }
 
 #myProgress {

@@ -60,6 +60,19 @@ function empty() {
    alert("Goal can't be empty");
 }
 
+function setLight() {
+   document.documentElement.style.setProperty('--main-color', '#64CED8');
+   document.documentElement.style.setProperty('--secondary-color', '#C0F5FA');
+   document.documentElement.style.setProperty('--text-color', 'black');
+}
+
+(function () {
+   let theme = localStorage.getItem('theme');
+   if (theme === 'light') {
+      setLight();
+   }
+})();
+
 // Add goals to localstorage
 createBtn.addEventListener('click', e => {
    e.preventDefault();
