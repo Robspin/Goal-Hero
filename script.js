@@ -6,7 +6,7 @@ const mainGoalEl = document.getElementById('main-goal');
 // Look for localstorage
 (function () {
    if (localStorage.getItem('myGoal') !== null) {
-      window.open('./page2/index.html', '_self');
+      window.open('./user/goal.html', '_self');
    }
 })();
 
@@ -31,7 +31,6 @@ function addStep(e) {
 }
 
 let x = document.getElementById('hold').childElementCount;
-console.log(x);
 
 // Event listeners
 addBtn.addEventListener('click', addStep);
@@ -41,7 +40,6 @@ here.addEventListener('click', e => {
    const clickedEl = e.target;
 
    if (clickedEl.tagName === 'BUTTON') {
-      console.log(clickedEl);
       clickedEl.parentElement.remove();
    }
 
@@ -128,7 +126,7 @@ function goalCreate() {
    );
 
    localStorage.setItem('myGoal', JSON.stringify(goals));
-   window.open('./page2/index.html', '_self');
+   window.open('./user/goal.html', '_self');
 }
 
 // Disable enter key

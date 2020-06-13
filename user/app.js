@@ -55,7 +55,6 @@ stepsContainer.addEventListener('click', e => {
       steps.forEach(name => {
          if (name.name === x && name.completed === false) {
             name.completed = true;
-            // console.log(steps);
             localStorage.setItem('steps', JSON.stringify(steps));
             steps = steps;
          } else if (name.name === x && name.completed === true) {
@@ -106,7 +105,7 @@ function setLight() {
    document.documentElement.style.setProperty('--main-color', '#64CED8');
    document.documentElement.style.setProperty('--secondary-color', '#C0F5FA');
    document.documentElement.style.setProperty('--text-color', 'black');
-   document.getElementById('ham').src = '/page2/pngs/ham-black.png';
+   document.getElementById('ham').src = '/user/pngs/ham-black.png';
    localStorage.setItem('theme', 'light');
 }
 
@@ -114,7 +113,7 @@ function setDark() {
    document.documentElement.style.setProperty('--main-color', '#0C4951');
    document.documentElement.style.setProperty('--secondary-color', '#387780');
    document.documentElement.style.setProperty('--text-color', '#fff');
-   document.getElementById('ham').src = '/page2/pngs/ham.png';
+   document.getElementById('ham').src = '/user/pngs/ham.png';
 }
 
 function changeTheme() {
@@ -135,7 +134,6 @@ function checkTheme() {
 }
 
 let style = getComputedStyle(document.body);
-// console.log(style.getPropertyValue('--main-color'));
 
 // Eventlisteners
 newGoalLink.addEventListener('click', () => {
